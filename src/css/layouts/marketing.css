@@ -10,8 +10,24 @@
  */
 body {
     line-height: 1.7em;
-    color: #7f8c8d;
+    color: #bdbdbd;
     font-size: 13px;
+}
+
+#header {
+    height: 50px;
+}
+
+.classreveal_site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #424242;
+}
+
+
+.classreveal_site_content {
+    flex: 1;
 }
 
 h1,
@@ -21,7 +37,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color: #ffffff;
 }
 
 .pure-img-responsive {
@@ -96,7 +112,7 @@ a.pure-button-primary {
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu {
-    background: #2d3e50;
+    background: #f9a825;
 }
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
