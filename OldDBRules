@@ -1,0 +1,61 @@
+{
+  "rules": {
+    "userProfile" : {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && $uid == auth.uid"
+      }
+    },
+    "flag" : {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "schoolData" : {
+      "$school": {  
+        "classData": {
+       				".read": "auth != null",
+          		".write": "auth != null && !root.child('blockedUsers').hasChild(auth.uid)  && newData.exists() && (newData.hasChild('period1') || newData.val() == 'true')",
+            
+          "$teacher": {
+         
+            "$period": {
+              
+              "$user": {
+                ".read": "auth != null",
+          		  ".write": "auth != null && !root.child('blockedUsers').hasChild(auth.uid)  && $user == auth.uid",
+            
+              },
+              ".read": "auth != null",
+          		".write": "auth != null && !root.child('blockedUsers').hasChild(auth.uid)  && newData.isBoolean()"
+            
+            }
+            
+           
+            
+            
+          }
+        },
+        "teachers": {
+        	"$teachername": {
+            ".read": "auth != null",
+          	".write": "auth != null && !root.child('blockedUsers').hasChild(auth.uid) && newData.exists()",
+         		
+          },
+         	".read": "auth != null",
+          	".write": "auth != null && !root.child('blockedUsers').hasChild(auth.uid) && newData.exists()"
+          
+        }
+      }
+      
+    
+    },
+    "schoolNames" : {
+       ".read": "auth != null",
+      ".write": "false"
+    },
+    "shareURLs" : {
+      ".read": "auth != null",
+      ".write": "false"
+    }
+  }
+}
