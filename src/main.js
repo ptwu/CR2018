@@ -152,6 +152,9 @@ class MainNavBar extends Component {
 
     openEditClasses() {
         if(activePage !== "edit") {
+
+            document.getElementById('navbaroption_' + activePage).className = "pure-u-1 pure-u-md-1-3 is-center navbar_option";
+            document.getElementById('navbaroption_edit').className = "pure-u-1 pure-u-md-1-3 is-center navbar_option navbar_option_selected";
             
             ReactDOM.render(<PageEditClasses/>, document.getElementById('classreveal_mainapp_content'));
             activePage = "edit";
@@ -161,6 +164,9 @@ class MainNavBar extends Component {
     openViewClassmates() {
         if(activePage !== "view") {
         
+            document.getElementById('navbaroption_' + activePage).className = "pure-u-1 pure-u-md-1-3 is-center navbar_option";
+            document.getElementById('navbaroption_view').className = "pure-u-1 pure-u-md-1-3 is-center navbar_option navbar_option_selected";
+
             ReactDOM.render(<PageViewClassmates/>, document.getElementById('classreveal_mainapp_content'));
             activePage = "view";
         }
@@ -170,14 +176,14 @@ class MainNavBar extends Component {
         return (
             <div id="classreveal_navbar">
                 <div className="pure-g navbar_container">
-                    <div className="pure-u-1 pure-u-md-1-3 is-center navbar_option" onClick={this.openEditClasses}>
+                    <div id="navbaroption_edit" className="pure-u-1 pure-u-md-1-3 is-center navbar_option" onClick={this.openEditClasses}>
                         <div>
                             <h2><i className="fa fa-clipboard-list"></i> Set My Classes</h2>
 
 
                         </div>
                     </div>
-                    <div className="pure-u-1 pure-u-md-1-3 is-center navbar_option navbar_option_selected" onClick={this.openViewClassmates}>
+                    <div id="navbaroption_view" className="pure-u-1 pure-u-md-1-3 is-center navbar_option navbar_option_selected" onClick={this.openViewClassmates}>
                         <div>
                             <h2><i className="fa fa-users"></i> View Classmates</h2>
 
@@ -203,16 +209,156 @@ class PageViewClassmates extends Component {
         return (
             <div className="page_base">
                 <h1>VIEW CLASSMATES PAGE: PLACEHOLDER</h1>
+
+                
+                      
             </div>
         );
     }
 }
 
 class PageEditClasses extends Component {
+
+    saveChanges() {
+
+    }
+
     render() {
         return (
             <div className="page_base">
-                <h1>SET MY CLASSES PAGE: PLACEHOLDER</h1>
+                <h3>Use first name 'Study' and last name 'Hall' for study hall</h3>
+                
+                <div className="pure-form pure-form-stacked editclassform">
+                    <div className="pure-g">
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 1 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd1_firstname">First Name</label>
+                            <input id="pd1_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd1_lastname">Last Name</label>
+                            <input id="pd1_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 2 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd2_firstname">First Name</label>
+                            <input id="pd2_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd2_lastname">Last Name</label>
+                            <input id="pd2_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 3 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd3_firstname">First Name</label>
+                            <input id="pd3_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd3_lastname">Last Name</label>
+                            <input id="pd3_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 4 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd4_firstname">First Name</label>
+                            <input id="pd4_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd4_lastname">Last Name</label>
+                            <input id="pd4_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 5 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd5_firstname">First Name</label>
+                            <input id="pd5_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd5_lastname">Last Name</label>
+                            <input id="pd5_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 6 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd6_firstname">First Name</label>
+                            <input id="pd6_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd6_lastname">Last Name</label>
+                            <input id="pd6_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 7 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd7_firstname">First Name</label>
+                            <input id="pd7_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd7_lastname">Last Name</label>
+                            <input id="pd7_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label>Period 8 Teacher</label>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd8_firstname">First Name</label>
+                            <input id="pd8_firstname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                            <label htmlFor="pd8_lastname">Last Name</label>
+                            <input id="pd8_lastname" className="pure-u-23-24" type="text"/>
+                        </div>
+
+                        <button onClick={this.saveChanges} className="pure-button pure-button-primary">Save Changes</button>
+
+                    </div>    
+                   
+                </div>
+                    
+
             </div>
         );
     }
