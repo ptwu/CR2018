@@ -4,13 +4,20 @@
 var {Component} = React;
 
 var provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({
+    prompt: 'select_account'
+ });
+
 var firebaseUser = null;
 var activePage = "";
+var loadedClasses = false;
 
 function checkInvalidAccount() {
     var user = firebase.auth().currentUser;
 
     if(!user.email.endsWith("@wwprsd.org")) {
+        
+        console.log('email: ' + user.email);
                 
         toast("times", "red", "You must sign in with your school (wwprsd.org) Google account.");
         firebaseUser = null;
@@ -31,6 +38,14 @@ function checkInvalidAccount() {
         return true;
     }
     return false;
+}
+
+function toNameFormat(str) {
+    str = str.trim();
+    str = str.toLowerCase();
+    str = str.replace(/[^a-zA-Z]+/g, "");
+    
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 class Header extends Component {
@@ -157,7 +172,11 @@ class MainNavBar extends Component {
             document.getElementById('navbaroption_edit').className = "pure-u-1 pure-u-md-1-3 is-center navbar_option navbar_option_selected";
             
             ReactDOM.render(<PageEditClasses/>, document.getElementById('classreveal_mainapp_content'));
+
+            loadClasses();
+
             activePage = "edit";
+
         }
     }
 
@@ -220,145 +239,202 @@ class PageViewClassmates extends Component {
 class PageEditClasses extends Component {
 
     saveChanges() {
+        var teachers = [];
+        var school = document.getElementById('select_school').value;
 
+        for(var i = 1; i <= 8; i++) {
+            var firstNameBox = document.getElementById('pd' + i + '_firstname');
+            var lastNameBox = document.getElementById('pd' + i + '_lastname');
+
+            var firstName = toNameFormat(firstNameBox.value);
+            var lastName = toNameFormat(lastNameBox.value);
+
+            //replace non-alphabetic characters entered in the box so they can see
+            firstNameBox.value = firstName;
+            lastNameBox.value = lastName;
+
+            teachers.push({pd: i, fn: firstName, ln: lastName});   
+
+        }
+
+        console.log(teachers);
+
+        var user = firebase.auth().currentUser;
+        firebase.database().ref('userProfile/' + user.uid).set(
+            {
+                schoolName: school,
+                classes: teachers
+            },
+            function(error) {
+                if (error) {
+                  toast("times", "red", "Couldn't write to database: " + error);
+                } else {
+                  toast("check", "green", "Updated successfully")
+                }
+            }
+        );
+        
     }
 
     render() {
         return (
             <div className="page_base">
-                <h3>Use first name 'Study' and last name 'Hall' for study hall</h3>
                 
-                <div className="pure-form pure-form-stacked editclassform">
-                    <div className="pure-g">
+                <div className="pure-g">
+                
+                    <div className="pure-u-1 pure-u-md-1-2">
+                        <h3>Use first name 'Study' and last name 'Hall' for study hall</h3>
 
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 1 Teacher</label>
+                        
+
+                        <div className="pure-form pure-form-stacked editclassform">
+                            <div className="pure-g">
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>School</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-2 editcolumn">
+                                    <select id="select_school">
+                                        <option value="school_south">HS South</option>
+                                        <option value="school_north">HS North</option>
+                                    </select>
+                                </div>
+                                
+                                <br/>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 1 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd1_firstname">First Name</label>
+                                    <input id="pd1_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd1_lastname">Last Name</label>
+                                    <input id="pd1_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 2 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd2_firstname">First Name</label>
+                                    <input id="pd2_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd2_lastname">Last Name</label>
+                                    <input id="pd2_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 3 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd3_firstname">First Name</label>
+                                    <input id="pd3_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd3_lastname">Last Name</label>
+                                    <input id="pd3_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 4 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd4_firstname">First Name</label>
+                                    <input id="pd4_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd4_lastname">Last Name</label>
+                                    <input id="pd4_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 5 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd5_firstname">First Name</label>
+                                    <input id="pd5_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd5_lastname">Last Name</label>
+                                    <input id="pd5_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 6 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd6_firstname">First Name</label>
+                                    <input id="pd6_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd6_lastname">Last Name</label>
+                                    <input id="pd6_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 7 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd7_firstname">First Name</label>
+                                    <input id="pd7_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd7_lastname">Last Name</label>
+                                    <input id="pd7_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label>Period 8 Teacher</label>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd8_firstname">First Name</label>
+                                    <input id="pd8_firstname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <div className="pure-u-1 pure-u-md-1-3 editcolumn">
+                                    <label htmlFor="pd8_lastname">Last Name</label>
+                                    <input id="pd8_lastname" className="pure-u-23-24" type="text"/>
+                                </div>
+
+                                <button onClick={this.saveChanges} className="pure-button pure-button-primary">Save Changes</button>
+
+                            </div>    
+                        
                         </div>
+                    </div>
 
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd1_firstname">First Name</label>
-                            <input id="pd1_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd1_lastname">Last Name</label>
-                            <input id="pd1_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 2 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd2_firstname">First Name</label>
-                            <input id="pd2_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd2_lastname">Last Name</label>
-                            <input id="pd2_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 3 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd3_firstname">First Name</label>
-                            <input id="pd3_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd3_lastname">Last Name</label>
-                            <input id="pd3_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 4 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd4_firstname">First Name</label>
-                            <input id="pd4_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd4_lastname">Last Name</label>
-                            <input id="pd4_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 5 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd5_firstname">First Name</label>
-                            <input id="pd5_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd5_lastname">Last Name</label>
-                            <input id="pd5_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 6 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd6_firstname">First Name</label>
-                            <input id="pd6_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd6_lastname">Last Name</label>
-                            <input id="pd6_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 7 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd7_firstname">First Name</label>
-                            <input id="pd7_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd7_lastname">Last Name</label>
-                            <input id="pd7_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label>Period 8 Teacher</label>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd8_firstname">First Name</label>
-                            <input id="pd8_firstname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <div className="pure-u-1 pure-u-md-1-3 editcolumn">
-                            <label htmlFor="pd8_lastname">Last Name</label>
-                            <input id="pd8_lastname" className="pure-u-23-24" type="text"/>
-                        </div>
-
-                        <button onClick={this.saveChanges} className="pure-button pure-button-primary">Save Changes</button>
-
-                    </div>    
-                   
+                    <div className="pure-u-1 pure-u-md-1-2">
+                        <h3>For convenience, you can access Genesis right here. We don't <a target="_blank" href="https://en.wikipedia.org/wiki/Same-origin_policy">(&amp; can't)</a> access your password.</h3>
+                        <iframe id="genesisembed" src="https://students.ww-p.org"></iframe>
+                    </div>
                 </div>
-                    
-
             </div>
         );
     }
@@ -424,6 +500,32 @@ function toast(icon, color, message) {
 }
 
 ReactDOM.render(<App/>, document.getElementById('container'));
+
+function loadClasses() {
+    var user = firebase.auth().currentUser;
+
+    firebase.database().ref('/userProfile/' + user.uid).once('value').then(function(snapshot) {
+        
+        if(snapshot !== null) {
+            var snapshotVal = snapshot.val();
+    
+            document.getElementById('select_school').value = snapshotVal.schoolName;
+        
+            var periods = snapshotVal.classes;
+        
+            for(var i = 0; i < periods.length; i++) {
+                var period = periods[i];
+                    
+                document.getElementById('pd' + period.pd + '_firstname').value = period.fn;
+                document.getElementById('pd' + period.pd + '_lastname').value = period.ln;
+            }
+    
+            toast("check", "green", "Loaded class data from database");
+
+        }
+            
+    });
+}
 
 //Initialization: Showing login button (or not)
 firebase.auth().onAuthStateChanged(function(user) {
