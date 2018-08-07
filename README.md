@@ -1,2 +1,2 @@
 # CR2018
-Do whatever you need to
+Make this not look bad & make it mobile friendly later
