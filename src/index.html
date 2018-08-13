@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ClassReveal</title>
 
+<!-- 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
+    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
     <![endif]-->
@@ -43,6 +48,29 @@
         };
         firebase.initializeApp(config);
     </script>
+
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="js/materialize.min.js"></script>
+ 
+	<script type="text/javascript">
+		$(document).ready(function () {
+	   		var menu = $('.menu');
+	    	var target = $('#' +menu.attr("data-target"));
+		    menu.pushpin({
+		     
+		    });
+		});
+
+		$(".button-collapse").sideNav();
+
+		$(document).ready(function(){
+	    	$('.parallax').parallax();
+	  	});
+
+		$(document).ready(function(){
+	    	$('.scrollspy').scrollSpy();
+	 	});
+	</script>
 
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
