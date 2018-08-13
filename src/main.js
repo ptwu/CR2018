@@ -273,7 +273,49 @@ class PageEditClasses extends Component {
                 }
             }
         );
+
+        setTimeout(
+            function() {
+                location.reload();
+            }, 
+            1000
+        );
         
+    }
+
+    clearForm() {
+
+        console.log("did it even work");
+
+        var user = firebase.auth().currentUser;
+
+        var userProfileRef = firebase.database().ref('userProfile/' + user.uid);
+        userProfileRef.remove().then(function() {
+            console.log("Removed userProfile data")
+        })
+        .catch(function(error) {
+            toast("times", "red", "Couldn't delete data. Try refreshing. " + error.message);
+            return;
+        });
+
+        document.getElementById('select_school').disabled = false;
+
+        document.getElementById('clearformbutton').disabled = true;
+
+        for(var i = 1; i <= 8; i++) {
+
+            document.getElementById('pd' + i + '_firstname').disabled = false;
+            document.getElementById('pd' + i + '_lastname').disabled = false;
+
+            document.getElementById('pd' + i + '_firstname').value = "";
+            document.getElementById('pd' + i + '_lastname').value = "";
+
+            document.getElementById('pd' + i + '_changebutton').disabled = true;
+        }
+    }
+
+    changeTeacher(num) {
+
     }
 
     render() {
@@ -283,7 +325,9 @@ class PageEditClasses extends Component {
                 <div className="pure-g">
                 
                     <div className="pure-u-1 pure-u-md-1-2">
-                        <h3>Use first name 'Study' and last name 'Hall' for study hall</h3>
+                        <h3 id="editclassheader">Use first name 'Study' and last name 'Hall' for study hall
+                            
+                        </h3>
 
                         
 
@@ -292,6 +336,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>School</label>
+                                    <button id="clearformbutton" className="pure-button pure-button-active button_clear invisible" onClick={this.clearForm}>Change School</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-2 editcolumn">
@@ -300,11 +345,13 @@ class PageEditClasses extends Component {
                                         <option value="school_north">HS North</option>
                                     </select>
                                 </div>
+                               
                                 
                                 <br/>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 1 Teacher</label>
+                                    <button id="pd1_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(1)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -320,6 +367,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 2 Teacher</label>
+                                    <button id="pd2_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(2)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -335,6 +383,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 3 Teacher</label>
+                                    <button id="pd3_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(3)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -351,6 +400,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 4 Teacher</label>
+                                    <button id="pd4_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(4)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -366,6 +416,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 5 Teacher</label>
+                                    <button id="pd5_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(5)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -381,6 +432,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 6 Teacher</label>
+                                    <button id="pd6_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(6)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -396,6 +448,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 7 Teacher</label>
+                                    <button id="pd7_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(7)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -411,6 +464,7 @@ class PageEditClasses extends Component {
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
                                     <label>Period 8 Teacher</label>
+                                    <button id="pd8_changebutton" className="pure-button pure-button-active button_delete invisible" onClick={() => this.changeTeacher(8)}>Change</button>
                                 </div>
 
                                 <div className="pure-u-1 pure-u-md-1-3 editcolumn">
@@ -510,6 +564,9 @@ function loadClasses() {
             var snapshotVal = snapshot.val();
     
             document.getElementById('select_school').value = snapshotVal.schoolName;
+            document.getElementById('select_school').disabled = true;
+
+            document.getElementById('clearformbutton').className = "pure-button pure-button-active button_clear";
         
             var periods = snapshotVal.classes;
         
@@ -518,7 +575,14 @@ function loadClasses() {
                     
                 document.getElementById('pd' + period.pd + '_firstname').value = period.fn;
                 document.getElementById('pd' + period.pd + '_lastname').value = period.ln;
+
+                document.getElementById('pd' + period.pd + '_firstname').disabled = true;
+                document.getElementById('pd' + period.pd + '_lastname').disabled = true;
+
+                document.getElementById('pd' + period.pd + '_changebutton').className = "pure-button pure-button-active button_delete";
             }
+
+            document.getElementById('editclassheader').innerHTML += "<br/>Warning: Changing your school will clear your saved schedule";
     
             toast("check", "green", "Loaded class data from database");
 

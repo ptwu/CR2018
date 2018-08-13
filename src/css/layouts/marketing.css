@@ -122,6 +122,14 @@ body {
     background-color: #c62828;
 }
 
+.button_delete {
+    background-color: #c62828;
+}
+
+.button_clear {
+    background-color: #f4511e;
+}
+
 .toast-green {
     background-color: #2e7d32;
 }
@@ -208,6 +216,10 @@ body {
     
 }
 
+.invisible {
+    visibility: none;
+}
+
 h1,
 h2,
 h3,
@@ -265,7 +277,6 @@ label {
  * I want my pure-button elements to look a little different
  */
 .pure-button {
-    background-color: #1f8dd6;
     color: white;
     padding: 0.5em 2em;
     border-radius: 5px;
