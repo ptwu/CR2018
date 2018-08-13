@@ -242,6 +242,10 @@ class PageEditClasses extends Component {
         var teachers = [];
         var school = document.getElementById('select_school').value;
 
+        var user = firebase.auth().currentUser;
+
+        var schoolDataUpdates = {};
+
         for(var i = 1; i <= 8; i++) {
             var firstNameBox = document.getElementById('pd' + i + '_firstname');
             var lastNameBox = document.getElementById('pd' + i + '_lastname');
@@ -255,11 +259,20 @@ class PageEditClasses extends Component {
 
             teachers.push({pd: i, fn: firstName, ln: lastName});   
 
+            var teacherRefStr = 'schoolData/' + school + '/teachers/' + firstName + '_' + lastName + '/pd' + i + '/';
+            
+            var newClassmateData = {
+                x: "x"
+            };
+
+            schoolDataUpdates[teacherRefStr + user.uid] = newClassmateData;
+
         }
 
-        console.log(teachers);
+        firebase.database().ref().update(schoolDataUpdates);
 
-        var user = firebase.auth().currentUser;
+        console.log(teachers);
+        
         firebase.database().ref('userProfile/' + user.uid).set(
             {
                 schoolName: school,
@@ -269,10 +282,12 @@ class PageEditClasses extends Component {
                 if (error) {
                   toast("times", "red", "Couldn't write to database: " + error);
                 } else {
-                  toast("check", "green", "Updated successfully")
+                  toast("check", "green", "Updated successfully");
                 }
             }
         );
+
+        
 
         setTimeout(
             function() {
