@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClassReveal</title>
+
+<!-- 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
+
+    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            
+        <!--<![endif]-->
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <!-- FIREBASE SETUP CODE -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyArtrcZzDp_OEquRaiwxPQ9K--Wx0fw0nU",
+            authDomain: "classreveal-3146f.firebaseapp.com",
+            databaseURL: "https://classreveal-3146f.firebaseio.com",
+            projectId: "classreveal-3146f",
+            storageBucket: "classreveal-3146f.appspot.com",
+            messagingSenderId: "691736012118"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="js/materialize.min.js"></script>
+ 
+	<script type="text/javascript">
+		$(document).ready(function () {
+	   		var menu = $('.menu');
+	    	var target = $('#' +menu.attr("data-target"));
+		    menu.pushpin({
+		     
+		    });
+		});
+
+		$(".button-collapse").sideNav();
+
+		$(document).ready(function(){
+	    	$('.parallax').parallax();
+	  	});
+
+		$(document).ready(function(){
+	    	$('.scrollspy').scrollSpy();
+	 	});
+	</script>
+
+    <script src="js/edit.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body class="classreveal_site">
+    
+
+    <div id="container">
+        
+        <div class="page_base">
+                
+            <div class="pure-g">
+            
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <h3 id="editclassheader">Use first name 'Study' and last name 'Hall' for study hall
+                        
+                    </h3>
+
+                    
+
+                    <div class="pure-form pure-form-stacked editclassform">
+                        <div class="pure-g">
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>School</label>
+                                <button id="clearformbutton" class="pure-button pure-button-active button_clear invisible" onClick="clearForm()">Change School</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-2 editcolumn">
+                                <select id="select_school">
+                                    <option value="school_south">HS South</option>
+                                    <option value="school_north">HS North</option>
+                                </select>
+                            </div>
+                           
+                            
+                            <br/>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 1 Teacher</label>
+                                <button id="pd1_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(1)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd1_firstname">First Name</label>
+                                <input id="pd1_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd1_lastname">Last Name</label>
+                                <input id="pd1_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 2 Teacher</label>
+                                <button id="pd2_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(2)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd2_firstname">First Name</label>
+                                <input id="pd2_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd2_lastname">Last Name</label>
+                                <input id="pd2_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 3 Teacher</label>
+                                <button id="pd3_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(3)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd3_firstname">First Name</label>
+                                <input id="pd3_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd3_lastname">Last Name</label>
+                                <input id="pd3_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 4 Teacher</label>
+                                <button id="pd4_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(4)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd4_firstname">First Name</label>
+                                <input id="pd4_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd4_lastname">Last Name</label>
+                                <input id="pd4_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 5 Teacher</label>
+                                <button id="pd5_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(5)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd5_firstname">First Name</label>
+                                <input id="pd5_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd5_lastname">Last Name</label>
+                                <input id="pd5_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 6 Teacher</label>
+                                <button id="pd6_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(6)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd6_firstname">First Name</label>
+                                <input id="pd6_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd6_lastname">Last Name</label>
+                                <input id="pd6_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 7 Teacher</label>
+                                <button id="pd7_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(7)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd7_firstname">First Name</label>
+                                <input id="pd7_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd7_lastname">Last Name</label>
+                                <input id="pd7_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label>Period 8 Teacher</label>
+                                <button id="pd8_changebutton" class="pure-button pure-button-active button_delete invisible" onClick="changeTeacher(8)">Change</button>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd8_firstname">First Name</label>
+                                <input id="pd8_firstname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <div class="pure-u-1 pure-u-md-1-3 editcolumn">
+                                <label htmlFor="pd8_lastname">Last Name</label>
+                                <input id="pd8_lastname" class="pure-u-23-24" type="text"/>
+                            </div>
+
+                            <button onClick="saveChanges()" class="pure-button pure-button-primary">Save Changes</button>
+
+                        </div>    
+                    
+                    </div>
+                </div>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <h3>For convenience, you can access Genesis right here. We don't <a target="_blank" href="https://en.wikipedia.org/wiki/Same-origin_policy">(&amp; can't)</a> access your password.</h3>
+                    <iframe id="genesisembed" src="https://students.ww-p.org"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="toast">
+        <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
+        <div id="toast_desc"></div>
+    </div>
+
+
+    </body>
+</html>
