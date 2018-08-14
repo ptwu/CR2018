@@ -15,16 +15,20 @@ function loadClasses() {
         
             var periods = snapshotVal.classes;
         
-            for(var i = 0; i < periods.length; i++) {
+            for(var i = 0; i < 8; i++) {
                 var period = periods[i];
-                    
-                document.getElementById('pd' + period.pd + '_firstname').value = period.fn;
-                document.getElementById('pd' + period.pd + '_lastname').value = period.ln;
-
-                document.getElementById('pd' + period.pd + '_firstname').disabled = true;
-                document.getElementById('pd' + period.pd + '_lastname').disabled = true;
-
-                document.getElementById('pd' + period.pd + '_changebutton').className = "pure-button pure-button-active button_delete";
+                
+                if(period != null)
+                {
+                    document.getElementById('pd' + period.pd + '_firstname').value = period.fn;
+                    document.getElementById('pd' + period.pd + '_lastname').value = period.ln;
+    
+                    document.getElementById('pd' + period.pd + '_firstname').disabled = true;
+                    document.getElementById('pd' + period.pd + '_lastname').disabled = true;
+    
+                    document.getElementById('pd' + period.pd + '_changebutton').className = "pure-button pure-button-active button_delete";
+                }
+                
             }
 
             document.getElementById('editclassheader').innerHTML += "<br/>Warning: Changing your school will clear your saved schedule";
@@ -137,6 +141,36 @@ function clearForm() {
 
 function changeTeacher(num) {
 
+    var previousTeacher = document.getElementById('pd' + num + '_firstname').value + "_" + document.getElementById('pd' + num + '_lastname').value;
+
+    var user = firebase.auth().currentUser;
+    var school = document.getElementById('select_school').value;
+
+    //Remove the user from the class
+    var userInClassRef = firebase.database().ref('school_data/' + school + '/teachers/' + previousTeacher + '/pd' + num + '/' + user.uid);
+    userInClassRef.remove().then(function() {
+        console.log("Removed user from class")
+    })
+    .catch(function(error) {
+        toast("times", "red", "Couldn't remove you from the class. " + error.message);
+        return;
+    });
+
+    //Remove the class data from the user profile
+    var classInUserProfileRef = firebase.database().ref('userProfile/' + user.uid + '/classes/' + (num-1));
+    classInUserProfileRef.remove().then(function() {
+        console.log("Removed class from userProfile")
+    })
+    .catch(function(error) {
+        toast("times", "red", "Couldn't remove the class from your profile. " + error.message);
+        return;
+    });
+
+    document.getElementById('pd' + num + '_firstname').disabled = false;
+    document.getElementById('pd' + num + '_lastname').disabled = false;
+
+    document.getElementById('pd' + num + '_firstname').value = "";
+    document.getElementById('pd' + num + '_lastname').value = "";
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
