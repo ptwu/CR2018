@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ClassReveal</title>
-
+    <title>ClassReveal | Home</title>
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 <!-- 
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
 
     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
@@ -52,7 +57,87 @@
    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
    <script src="js/materialize.min.js"></script>
  
-	<script type="text/javascript">
+	
+
+    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body class="classreveal_site">
+    <!-- NAVBAR -->
+<div class="navbar-fixed">
+  <nav class="yellow" role="navigation" id = "navbar">
+
+      
+     <a href="#" class="brand-logo"><img class="responsive-img" src = "img/navbarlogo.png" ></img></a> <a href="#" class="brand-logo right" style="font-size:12px"></a>   
+     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-dark">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li class = "navlinks active"><a href="#">HOME</a></li>    
+        <li class = "navlinks"><a href="view.html">VIEW</a></li>    
+		<li class = "navlinks"><a href="edit.html">EDIT</a></li> 
+
+      </ul>
+
+  </nav>
+   </div>
+<ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+       <li class = "navlinks active"><a href="#">HOME</a></li>    
+        <li class = "navlinks"><a href="view.html">VIEW</a></li>    
+		<li class = "navlinks"><a href="edit.html">EDIT</a></li> 
+
+
+</ul>
+
+    <div id="container" style = "background: url(img/indexbackground.jpg); background-repeat: no-repeat; background-size:cover;   height:100vh;">
+        
+        <div>
+           <div class = "container">
+        <br><br>
+             <h1 class="header center" style = "font-family: Raleway; serif; color: black; font-weight: 900;">Let's make schedule sharing easier.</style></span></h1>
+             <h4 class="header center" style = "font-family: Raleway; serif; color: #4d4d4d; font-weight: 300;">Made for WW-P students, by WW-P students.</style></span></h4>
+			<br>
+
+			<center>
+            <button class="btn-large white darken-4 center" onclick = googleSignIn()>
+			         <div class="left">
+			             <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+			         </div>
+			         <span style = "text-transform: none; color: black;">&nbsp;&nbsp;&nbsp;Sign in with Google</p>
+			</button>
+			</center><br>
+			<h6 class="header center" style = "font-weight: bold">You must use your wwprsd.org account.</h6>
+        </div>
+        </div>
+        
+</div>
+ <div id="toast">
+                <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
+                <div id="toast_desc"></div>
+            </div>
+
+    <footer class="page-footer white">
+    <div class="container">
+      <div class="row">
+  
+  		<span>By using ClassReveal, you acknowledge that 
+anyone with a wwprsd.org Google account can see the classes in which you are enrolled.
+
+We do not support non WW-P schools because of security issues.
+This year, we are required to verify that ClassReveal users are actual students, 
+which is why you have to sign in using Google. We cannot verify students 
+from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
+
+
+        
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container" style = "color: black;">
+      ©2018 Class Reveal.
+      </a>
+      </div>
+    </div>
+  </footer>
+<script type="text/javascript">
 		$(document).ready(function () {
 	   		var menu = $('.menu');
 	    	var target = $('#' +menu.attr("data-target"));
@@ -71,55 +156,6 @@
 	    	$('.scrollspy').scrollSpy();
 	 	});
 	</script>
-
-    <script src="js/main.js"></script>
-    <script src="js/common.js"></script>
-</head>
-<body class="classreveal_site">
-    
-
-    <div id="container">
-        
-        <div>
-            <div id="header">
-                <div className="header">
-                    <div className="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-                        <a className="pure-menu-heading" href="">ClassReveal</a>
-                
-                        <ul className="pure-menu-list">
-                            <li className="pure-menu-item pure-menu-selected"><a href="#" className="pure-menu-link">Home</a></li>
-                        </ul>
-                    </div>
-                </div> 
-            </div>
-
-            <div className="classreveal_site_content is-center" id="google_signindiv">
-                <h2 className="content-head">Sign in with Google</h2>
-                <h4 className="content-head">You must use your wwprsd.org account</h4>
-                <button className="content-head" onClick={this.googleSignIn}><img src="img/google_signin/normal.png"/></button>    
-            </div>
-
-            <div className="classreveal_site_content is-center" id="privacydisclaimerdiv">
-                <p className="content-head">By using ClassReveal, you acknowledge that <br/>anyone with a wwprsd.org Google account can see which classes you are in.</p>
-                <p className="content-head">We do not support non WW-P schools because of security issues.<br/> This year, we are required to verify that ClassReveal users are actual students, <br/> which is why you have to sign in using Google. We cannot verify students <br/> from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</p>
-
-            </div>
-
-            <div id="classreveal_main"></div>
-            
-            <div id="toast">
-                <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
-                <div id="toast_desc"></div>
-            </div>
-
-            <div className="footer l-box is-center">
-               footer
-            </div>
-    
-        </div>
-
-    </div>
-
 
 </body>
 </html>

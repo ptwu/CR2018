@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ClassReveal</title>
-
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 <!-- 
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
 
@@ -75,8 +80,31 @@
     <script src="js/view.js"></script>
     <script src="js/common.js"></script>
 </head>
-<body class="classreveal_site">
-    
+<body>
+     <!-- NAVBAR -->
+<div class="navbar-fixed">
+  <nav class="yellow" role="navigation" id = "navbar">
+
+      
+     <a href="#" class="brand-logo"><img class="responsive-img" src = "img/navbarlogo.png" ></img></a> <a href="#" class="brand-logo right" style="font-size:12px"></a>   
+     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-dark">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li class = "navlinks"><a href="index.html">HOME</a></li>    
+        <li class = "navlinks active"><a href="#">VIEW</a></li>    
+        <li class = "navlinks"><a href="edit.html">EDIT</a></li> 
+        <li><button class = "btn-large waves-effect waves-light black white-text" onclick = googleSignIn()>Sign in</a></li>   
+      </ul>
+
+  </nav>
+   </div>
+<ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+       <li class = "navlinks"><a href="#">index.html</a></li>    
+        <li class = "navlinks active"><a href="#">VIEW</a></li>    
+        <li class = "navlinks"><a href="edit.html">EDIT</a></li> 
+        <li><button class = "btn-large waves-effect waves-light black white-text" onclick = googleSignIn()>Sign in</a></li>   
+
+</ul>
+
 
     <div id="container">
         

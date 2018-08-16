@@ -53,7 +53,7 @@ function googleSignIn() {
 
         console.log(firebaseUser.email);
         toast("check", "green", "Success! Logged in as " + firebaseUser.email);
-
+        
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
