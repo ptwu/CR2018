@@ -59,8 +59,7 @@
  
 	
 
-    <script src="js/main.js"></script>
-    <script src="js/common.js"></script>
+
 </head>
 <body class="classreveal_site">
     <!-- NAVBAR -->
@@ -82,9 +81,7 @@
 <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
        <li class = "navlinks active"><a href="#">HOME</a></li>    
         <li class = "navlinks"><a href="view.html">VIEW</a></li>    
-		<li class = "navlinks"><a href="edit.html">EDIT</a></li> 
-
-
+		<li class = "navlinks"><a href="edit.html">EDIT</a></li>
 </ul>
 
     <div id="container" style = "background: url(img/indexbackground.jpg); background-repeat: no-repeat; background-size:cover;   height:100vh;">
@@ -92,11 +89,12 @@
         <div>
            <div class = "container">
         <br><br>
-             <h1 class="header center" style = "font-family: Raleway; serif; color: black; font-weight: 900;">Let's make schedule sharing easier.</style></span></h1>
-             <h4 class="header center" style = "font-family: Raleway; serif; color: #4d4d4d; font-weight: 300;">Made for WW-P students, by WW-P students.</style></span></h4>
+             <h1 class="header center" style = "font-family: Raleway; color: black; font-weight: 900;">Let's make schedule sharing easier.</style></span></h1>
+             <h4 class="header center" style = "font-family: Raleway; color: #4d4d4d; font-weight: 300;">Made for WW-P students, by WW-P students.</style></span></h4>
 			<br>
 
 			<center>
+			 <div id="google_signindiv">
             <button class="btn-large white darken-4 center" onclick = googleSignIn()>
 			         <div class="left">
 			             <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
@@ -104,32 +102,42 @@
 			         <span style = "text-transform: none; color: black;">&nbsp;&nbsp;&nbsp;Sign in with Google</p>
 			</button>
 			</center><br>
+			</div>
 			<h6 class="header center" style = "font-weight: bold">You must use your wwprsd.org account.</h6>
         </div>
         </div>
-        
+
 </div>
  <div id="toast">
-                <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
-                <div id="toast_desc"></div>
-            </div>
+        <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
+        <div id="toast_desc"></div>
+ </div>
 
     <footer class="page-footer white">
     <div class="container">
+
+	<span class="header center" style = "font-family: Roboto, sans-serif; font-weight: 500; font-size: 20px;">FAQ</span>
+
+	<ul class="collapsible z-depth-0" data-collapsible="expandable" style = "border-right: 0; border-left: 0;">
+             <li>
+              <div class="collapsible-header truncate"><i class="material-icons icon-dark">arrow_drop_down</i>What's Class Reveal?
+			</div>
+              <div class="collapsible-body"><p>asdfasfsdafasfasdfsafasdfasdf</p></div>
+            </li>
+
+            <li>
+              <div class="collapsible-header truncate"><i class="material-icons icon-dark">arrow_drop_down</i>Why a website this year?
+			</div>
+              <div class="collapsible-body"><p>asfdasdfasdfsadfasfasdfasdfasdf</p></div>
+            </li>
+
+ 	</ul>
+
       <div class="row">
-  
-  		<span>By using ClassReveal, you acknowledge that 
-anyone with a wwprsd.org Google account can see the classes in which you are enrolled.
-
-We do not support non WW-P schools because of security issues.
-This year, we are required to verify that ClassReveal users are actual students, 
-which is why you have to sign in using Google. We cannot verify students 
-from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
-
-
-        
+  		<span>By using Class Reveal, you acknowledge that anyone with a wwprsd.org Google account can see the classes in which you are enrolled. We do not support non WW-P schools because of security issues. This year, we are required to verify that ClassReveal users are actual students, which is why you have to sign in using Google. We cannot verify students from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
       </div>
     </div>
+
     <div class="footer-copyright">
       <div class="container" style = "color: black;">
       ©2018 Class Reveal.
@@ -137,6 +145,7 @@ from other school districts, so we're limited to WW-P. Sorry for the inconvenien
       </div>
     </div>
   </footer>
+
 <script type="text/javascript">
 		$(document).ready(function () {
 	   		var menu = $('.menu');
@@ -156,6 +165,9 @@ from other school districts, so we're limited to WW-P. Sorry for the inconvenien
 	    	$('.scrollspy').scrollSpy();
 	 	});
 	</script>
+
+<script src="js/main.js"></script>
+<script src="js/common.js"></script>
 
 </body>
 </html>

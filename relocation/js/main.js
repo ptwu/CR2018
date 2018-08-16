@@ -73,8 +73,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         var signInDiv = document.getElementById("google_signindiv");
         signInDiv.parentNode.removeChild(signInDiv);
 
-        var privacyDiv = document.getElementById("privacydisclaimerdiv");
-        privacyDiv.parentNode.removeChild(privacyDiv);
+      
 
         if(checkInvalidAccount()) {
             return;
