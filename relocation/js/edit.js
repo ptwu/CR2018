@@ -171,7 +171,5 @@ function removeFromClass(num) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         loadClasses();
-    } else {
-        alert("You aren't signed in. Please go back to the home page and don't try to access this URL directly");
-    }
+    } 
 });

@@ -22,7 +22,7 @@ function signOut() {
     setTimeout(
         function() { 
             firebase.auth().signOut().then(function() {      
-                location.reload();
+                location.replace("index.html");
             }).catch(function(error) {
                 toast("times", "red", "Failed to sign out");
             });
