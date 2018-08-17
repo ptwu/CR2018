@@ -1,4 +1,5 @@
-
+var previousClasses = [];
+var previousSchool = "";
 
 function loadClasses() {
     var user = firebase.auth().currentUser;
@@ -9,10 +10,15 @@ function loadClasses() {
             var snapshotVal = snapshot.val();
     
             document.getElementById('select_school').value = snapshotVal.schoolName;
+
+            previousSchool = snapshotVal.schoolName;
+
             document.getElementById('select_school').disabled = true;
 
-            document.getElementById('clearformbutton').className = "pure-button pure-button-active button_clear";
-        
+            document.getElementById('clearformbutton').className = "btn-large red darken-2";
+
+            $(".namelabel").css("visibility", "hidden");
+
             var periods = snapshotVal.classes;
         
             for(var i = 0; i < 8; i++) {
@@ -25,13 +31,13 @@ function loadClasses() {
     
                     document.getElementById('pd' + period.pd + '_firstname').disabled = true;
                     document.getElementById('pd' + period.pd + '_lastname').disabled = true;
-    
-                    document.getElementById('pd' + period.pd + '_changebutton').className = "pure-button pure-button-active button_delete";
+
+                    previousClasses.push(period);
                 }
                 
             }
 
-            document.getElementById('editclassheader').innerHTML += "<br/>Warning: Changing your school will clear your saved schedule";
+            document.getElementById('editclassheader').innerHTML += "<br><br>To remove yourself from your classes or edit your schedule, press Clear/Edit Schedule.<br>WARNING: You must save changes after any edits, or your data will be deleted";
     
             toast("check", "green", "Loaded class data from database");
 
@@ -132,45 +138,34 @@ function clearForm() {
         document.getElementById('pd' + i + '_firstname').disabled = false;
         document.getElementById('pd' + i + '_lastname').disabled = false;
 
-        document.getElementById('pd' + i + '_firstname').value = "";
-        document.getElementById('pd' + i + '_lastname').value = "";
+        removeFromClass(i-1);
 
-        document.getElementById('pd' + i + '_changebutton').disabled = true;
     }
 }
 
-function changeTeacher(num) {
+function removeFromClass(num) {
 
-    var previousTeacher = document.getElementById('pd' + num + '_firstname').value + "_" + document.getElementById('pd' + num + '_lastname').value;
+    var periodNum = num + 1;
+
+    var previousTeacher = previousClasses[num];
+
+    var previousTeacherName = previousTeacher.fn + "_" + previousTeacher.ln;
 
     var user = firebase.auth().currentUser;
-    var school = document.getElementById('select_school').value;
+    var school = previousSchool;
 
     //Remove the user from the class
-    var userInClassRef = firebase.database().ref('school_data/' + school + '/teachers/' + previousTeacher + '/pd' + num + '/' + user.uid);
+    var userInClassRef = firebase.database().ref('schoolData/' + school + '/teachers/' + previousTeacherName + '/pd' + periodNum + '/' + user.uid);
+
+    console.log(userInClassRef.toString());
+
     userInClassRef.remove().then(function() {
-        console.log("Removed user from class")
+        console.log("Removed user from class");
     })
     .catch(function(error) {
         toast("times", "red", "Couldn't remove you from the class. " + error.message);
         return;
     });
-
-    //Remove the class data from the user profile
-    var classInUserProfileRef = firebase.database().ref('userProfile/' + user.uid + '/classes/' + (num-1));
-    classInUserProfileRef.remove().then(function() {
-        console.log("Removed class from userProfile")
-    })
-    .catch(function(error) {
-        toast("times", "red", "Couldn't remove the class from your profile. " + error.message);
-        return;
-    });
-
-    document.getElementById('pd' + num + '_firstname').disabled = false;
-    document.getElementById('pd' + num + '_lastname').disabled = false;
-
-    document.getElementById('pd' + num + '_firstname').value = "";
-    document.getElementById('pd' + num + '_lastname').value = "";
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
