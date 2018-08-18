@@ -15,7 +15,7 @@ function loadClasses() {
 
             document.getElementById('select_school').disabled = true;
 
-            document.getElementById('clearformbutton').className = "btn-large red darken-2";
+            document.getElementById('clearformbutton').className = "btn red darken-2";
 
             $(".namelabel").css("visibility", "hidden");
 
