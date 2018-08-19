@@ -1,2 +1,3 @@
-# CR2018
-Make this not look bad & make it mobile friendly later
+# Class Reveal
+
+Class Reveal makes finding your classmates easier! Within minutes you can cross check your schedule with classmates, thanks to Firebase and simple GAuth @wwprsd.org login.
