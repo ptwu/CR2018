@@ -37,7 +37,7 @@ function loadClasses() {
                 
             }
 
-            document.getElementById('editclassheader').innerHTML += "<br><br>To remove yourself from your classes or edit your schedule, press Clear/Edit Schedule.<br>WARNING: You must save changes after any edits, or your data will be deleted";
+            document.getElementById('editclassheader').innerHTML += "<br><br>To remove yourself from your classes or edit your schedule, press Edit Schedule.<br>WARNING: You must save changes after any edits, or your data will be deleted";
     
             toast("check", "green", "Loaded class data from database");
 
@@ -78,7 +78,7 @@ function saveChanges() {
         var teacherRefStr = 'schoolData/' + school + '/teachers/' + firstName + '_' + lastName + '/pd' + i + '/';
         
         var newClassmateData = {
-            x: "x"
+            name: user.displayName
         };
 
         schoolDataUpdates[teacherRefStr + user.uid] = newClassmateData;
