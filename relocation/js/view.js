@@ -15,6 +15,12 @@ function loadPeriods() {
         
         if(snapshot !== null) {
             var snapshotVal = snapshot.val();
+
+            if(snapshotVal == null) {
+                document.getElementById('schoolindicator').innerHTML = "Go to Edit to enter your classes";
+                document.getElementById('schoolindicator').style.color = "red";
+                return;
+            }
     
             var schoolName = snapshotVal.schoolName;
 

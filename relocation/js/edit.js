@@ -69,6 +69,11 @@ function saveChanges() {
         var firstName = toNameFormat(firstNameBox.value);
         var lastName = toNameFormat(lastNameBox.value);
 
+        if(firstName == '' || lastName == '') {
+            toast("times", "red", "You left the first/last name of at least one teacher blank.");
+            return;
+        }
+
         //replace non-alphabetic characters entered in the box so they can see
         firstNameBox.value = firstName;
         lastNameBox.value = lastName;
