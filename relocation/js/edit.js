@@ -77,8 +77,11 @@ function saveChanges() {
 
         var teacherRefStr = 'schoolData/' + school + '/teachers/' + firstName + '_' + lastName + '/pd' + i + '/';
         
+        var userGrade = Number(user.email.slice(0,2)) * -1 + 31
+
         var newClassmateData = {
-            name: user.displayName
+            name: user.displayName,
+            grade: userGrade
         };
 
         schoolDataUpdates[teacherRefStr + user.uid] = newClassmateData;

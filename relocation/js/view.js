@@ -1,5 +1,12 @@
 var classmateHTML = "<li class='collection-item avatar'><img src='img/person.png' alt='Person' class='circle'><span class='title'>Title</span></li>";
 
+function schoolDBNameToReal(dbName) {
+    if(dbName === "school_south") {
+        return "HS South";
+    } else if(dbName === "school_north") {
+        return "HS North";
+    }
+}
 
 function loadPeriods() {
     var user = firebase.auth().currentUser;
@@ -10,6 +17,8 @@ function loadPeriods() {
             var snapshotVal = snapshot.val();
     
             var schoolName = snapshotVal.schoolName;
+
+            document.getElementById('schoolindicator').innerHTML += schoolDBNameToReal(schoolName);
 
             var periods = snapshotVal.classes;
         
@@ -29,7 +38,7 @@ function loadPeriods() {
 
                     snap.forEach(function(child) { 
                         var name = child.val().name; 
-                        var classmateHTML = "<li class='collection-item avatar'><img src='img/person.png' alt='Person' class='circle'><span class='title'>" + name + "</span></li>";
+                        var classmateHTML = "<li class='collection-item avatar'><img src='img/person.png' alt='Person' class='circle'><span class='title'>" + name + "</span><p>Grade " + child.val().grade + "</p>" + "</li>";
 
                         document.getElementById('period' + actualPd).innerHTML += classmateHTML;
                     });
