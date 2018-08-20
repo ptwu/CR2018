@@ -1,6 +1,44 @@
 var previousClasses = [];
 var previousSchool = "";
 
+var teacherAutocomplete = [];
+
+function manualEntry(num) {
+    document.getElementById('autocomplete_' + num).style.display = 'none';
+    document.getElementById('manualentry_' + num).style.display = 'block';
+}
+
+function loadAutocompleteList(schoolNameDB) {
+
+    teacherAutocomplete = [];
+
+    var teachers = firebase.database().ref('schoolData/' + schoolNameDB + '/teachers');
+                
+    teachers.once('value').then(function(snap) {
+        snap.forEach(function(child) { 
+            var name = child.key;
+            var nameSplit = name.split("_");
+
+            var firstName = nameSplit[0];
+            var lastName = nameSplit[1];
+
+            
+
+            teacherAutocomplete.push(lastName + ", " + firstName);
+            
+        });
+
+    });
+}
+
+$(document).ready(function(){
+    $("#select_school").change(function(){
+    
+        loadAutocompleteList($("#select_school").val());
+    
+    })
+});
+
 function loadClasses() {
     var user = firebase.auth().currentUser;
 
@@ -8,6 +46,11 @@ function loadClasses() {
         
         if(snapshot !== null) {
             var snapshotVal = snapshot.val();
+
+            if(snapshotVal == null) {
+                loadAutocompleteList('school_south');
+                return;
+            }
     
             document.getElementById('select_school').value = snapshotVal.schoolName;
 
@@ -32,15 +75,18 @@ function loadClasses() {
                     document.getElementById('pd' + period.pd + '_firstname').disabled = true;
                     document.getElementById('pd' + period.pd + '_lastname').disabled = true;
 
+                    document.getElementById('autocomplete_' + period.pd).style.display = 'none';
+                    document.getElementById('manualentry_' + period.pd).style.display = 'block';
+
                     previousClasses.push(period);
                 }
                 
             }
 
+            
             document.getElementById('editclassheader').innerHTML += "<br><br>To remove yourself from your classes or edit your schedule, press Edit Schedule.<br>WARNING: You must save changes after any edits, or your data will be deleted";
-    
             toast("check", "green", "Loaded class data from database");
-
+            
         }
             
     });
@@ -124,8 +170,6 @@ function saveChanges() {
 
 function clearForm() {
 
-    console.log("did it even work");
-
     var user = firebase.auth().currentUser;
 
     var userProfileRef = firebase.database().ref('userProfile/' + user.uid);
@@ -146,9 +190,14 @@ function clearForm() {
         document.getElementById('pd' + i + '_firstname').disabled = false;
         document.getElementById('pd' + i + '_lastname').disabled = false;
 
+        document.getElementById('autocomplete_' + i).style.display = 'block';
+        document.getElementById('manualentry_' + i).style.display = 'none';
+
         removeFromClass(i-1);
 
     }
+
+    loadAutocompleteList($("#select_school").val());
 }
 
 function removeFromClass(num) {
@@ -181,3 +230,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         loadClasses();
     } 
 });
+
+
+

@@ -55,9 +55,8 @@
     </script>
 
    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script src="js/materialize.min.js"></script>
- 
-
 
     <script src="js/edit.js"></script>
     <script src="js/common.js"></script>
@@ -123,112 +122,209 @@
                             <h6>Period 1 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd1_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
+                            <div id="autocomplete_1">
+                              <div class="input-field col s6">
+                                <input id="pd1_autocomplete" type="text">
+                                <label class="active">Last Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <button class = "btn green darken-2" onClick="manualEntry(1)">add new</button>
+                              </div>
+                            </div>
+                            
+                          <div id="manualentry_1" style="display:none">
+                            <div class="input-field col s6">
+                              <input id="pd1_firstname" type="text">
+                              <label class="active namelabel">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <input id="pd1_lastname" type="text">
+                              <label class="active namelabel">Last Name</label>
+                            </div>
                           </div>
-                           <div class="input-field col s6">
-                             <input id="pd1_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+
                         </div>
 
                           <div class="row">
                             <h6>Period 2 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd2_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
+                            <div id="autocomplete_2">
+                                <div class="input-field col s6">
+                                  <input id="pd2_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(2)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_2" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd2_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd2_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                           </div>
-                           <div class="input-field col s6">
-                             <input id="pd2_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
-                        </div>
-
                           <div class="row">
                             <h6>Period 3 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd3_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd3_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_3">
+                                <div class="input-field col s6">
+                                  <input id="pd3_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(3)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_3" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd3_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd3_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
+
                         </div>
 
                           <div class="row">
                             <h6>Period 4 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd4_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd4_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_4">
+                                <div class="input-field col s6">
+                                  <input id="pd4_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(4)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_4" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd4_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd4_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                         </div>
 
                           <div class="row">
                             <h6>Period 5 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd5_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd5_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_5">
+                                <div class="input-field col s6">
+                                  <input id="pd5_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(5)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_5" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd5_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd5_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                         </div>
 
                           <div class="row">
                             <h6>Period 6 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd6_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd6_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_6">
+                                <div class="input-field col s6">
+                                  <input id="pd6_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(6)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_6" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd6_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd6_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                         </div>
 
                           <div class="row">
                             <h6>Period 7 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd7_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd7_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_7">
+                                <div class="input-field col s6">
+                                  <input id="pd7_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(7)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_7" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd7_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd7_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                         </div>
 
                           <div class="row">
                             <h6>Period 8 Teacher</h6>  
                             
                             <br>
-                          <div class="input-field col s6">
-                            <input id="pd8_firstname" type="text">
-                            <label class="active namelabel">First Name</label>
-                          </div>
-                           <div class="input-field col s6">
-                             <input id="pd8_lastname" type="text">
-                            <label class="active namelabel">Last Name</label>
-                          </div>
+                            <div id="autocomplete_8">
+                                <div class="input-field col s6">
+                                  <input id="pd8_autocomplete" type="text">
+                                  <label class="active">Last Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <button class = "btn green darken-2" onClick="manualEntry(8)">add new</button>
+                                </div>
+                              </div>
+                              
+                            <div id="manualentry_8" style="display:none">
+                              <div class="input-field col s6">
+                                <input id="pd8_firstname" type="text">
+                                <label class="active namelabel">First Name</label>
+                              </div>
+                              <div class="input-field col s6">
+                                <input id="pd8_lastname" type="text">
+                                <label class="active namelabel">Last Name</label>
+                              </div>
+                            </div>
                         </div>
                             <button class = "btn-large yellow darken-2" onClick="saveChanges()">Save Changes</button>
 
