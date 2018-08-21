@@ -43,10 +43,14 @@ function loadPeriods() {
                     var actualPd = snap.key.replace("pd", "");
 
                     snap.forEach(function(child) { 
-                        var name = child.val().name; 
-                        var classmateHTML = "<li class='collection-item avatar'><img src='img/person.png' alt='Person' class='circle'><span class='title'>" + name + "</span><p>Grade " + child.val().grade + "</p>" + "</li>";
-
-                        document.getElementById('period' + actualPd).innerHTML += classmateHTML;
+                        
+                        if(child.key !== "placeholder") {
+                            var name = child.val().name; 
+                            var classmateHTML = "<li class='collection-item avatar'><img src='img/person.png' alt='Person' class='circle'><span class='title'>" + name + "</span><p>Grade " + child.val().grade + "</p>" + "</li>";
+    
+                            document.getElementById('period' + actualPd).innerHTML += classmateHTML;
+                        }
+                        
                     });
 
                 });
