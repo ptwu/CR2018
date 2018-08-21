@@ -6,6 +6,9 @@ var teacherAutocomplete = [];
 function manualEntry(num) {
     document.getElementById('autocomplete_' + num).style.display = 'none';
     document.getElementById('manualentry_' + num).style.display = 'block';
+
+    document.getElementById('pd' + num + '_firstname').value = "";
+    document.getElementById('pd' + num + '_lastname').value = "";
 }
 
 function loadAutocompleteList(schoolNameDB) {
@@ -22,13 +25,34 @@ function loadAutocompleteList(schoolNameDB) {
             var firstName = nameSplit[0];
             var lastName = nameSplit[1];
 
-            
-
             teacherAutocomplete.push(lastName + ", " + firstName);
             
         });
 
     });
+
+    $(".teacheracinput").autocomplete(
+        {
+            source: teacherAutocomplete,
+            select: function (event, ui) {
+                var selected = ui.item.label;
+                var period = this.id.charAt(2);
+
+                var nameSplit = selected.split(", ");
+                var firstName = nameSplit[1];
+                var lastName = nameSplit[0];
+
+                document.getElementById('pd' + period + '_firstname').value = firstName;
+                document.getElementById('pd' + period + '_lastname').value = lastName;
+            },
+            change: function(event, ui) {
+                if (ui.item == null) {
+                    $(this).val("");
+                    $(this).focus();
+                }
+            }
+        }
+    );
 }
 
 $(document).ready(function(){
@@ -49,6 +73,7 @@ function loadClasses() {
 
             if(snapshotVal == null) {
                 loadAutocompleteList('school_south');
+                document.getElementById('editclassheader').innerHTML += "<br><br>Start typing in your teacher's last name to use autocomplete. If you can't find them, press Add New to enter a new teacher manually";
                 return;
             }
     
@@ -190,14 +215,14 @@ function clearForm() {
         document.getElementById('pd' + i + '_firstname').disabled = false;
         document.getElementById('pd' + i + '_lastname').disabled = false;
 
-        document.getElementById('autocomplete_' + i).style.display = 'block';
-        document.getElementById('manualentry_' + i).style.display = 'none';
+        // document.getElementById('autocomplete_' + i).style.display = 'block';
+        // document.getElementById('manualentry_' + i).style.display = 'none';
 
         removeFromClass(i-1);
 
     }
 
-    loadAutocompleteList($("#select_school").val());
+    // loadAutocompleteList($("#select_school").val());
 }
 
 function removeFromClass(num) {
