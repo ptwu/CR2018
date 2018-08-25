@@ -1,0 +1,8 @@
+## OS Files
+.DS_Store
+
+## IDE Files
+.idea/
+
+## Incomplete/Testing files
+test.html

@@ -18,13 +18,12 @@ body {
     height: 50px;
 }
 
-
 /* TOAST NOTIFICATIONS */
 #toast {
     visibility: hidden;
     max-width: 600px;
     height: 50px;
-    /*margin-left: -125px;*/
+    /* margin-left: -125px; */
     margin: auto;
     color: #fff;
     text-align: center;
@@ -32,91 +31,141 @@ body {
 
     position: fixed;
     z-index: 1;
-    left: 0;right:0;
+    left: 0;
+    right: 0;
     bottom: 30px;
     font-size: 17px;
     white-space: nowrap;
 }
+
 #toast_img_holder {
-	width: 50px;
-	height: 50px;
-    
+    width: 50px;
+    height: 50px;
+
     float: left;
-    
+
     padding-top: 16px;
     padding-bottom: 16px;
-    
+
     box-sizing: border-box;
 
-    
     background-color: #000;
     color: #fff;
 }
-#toast_desc{
 
-    
+#toast_desc {
+
     color: #fff;
-   
+
     padding: 16px;
-    
+
     overflow: hidden;
-	white-space: nowrap;
+    white-space: nowrap;
 }
 
 #toast.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
 }
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes expand {
-    from {min-width: 50px} 
-    to {min-width: 350px}
+    from {
+        min-width: 50px
+    }
+    to {
+        min-width: 350px
+    }
 }
 
 @keyframes expand {
-    from {min-width: 50px}
-    to {min-width: 350px}
+    from {
+        min-width: 50px
+    }
+    to {
+        min-width: 350px
+    }
 }
+
 @-webkit-keyframes stay {
-    from {min-width: 350px} 
-    to {min-width: 350px}
+    from {
+        min-width: 350px
+    }
+    to {
+        min-width: 350px
+    }
 }
 
 @keyframes stay {
-    from {min-width: 350px}
-    to {min-width: 350px}
+    from {
+        min-width: 350px
+    }
+    to {
+        min-width: 350px
+    }
 }
+
 @-webkit-keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
+    from {
+        min-width: 350px;
+    }
+    to {
+        min-width: 50px;
+    }
 }
 
 @keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
+    from {
+        min-width: 350px;
+    }
+    to {
+        min-width: 50px;
+    }
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 60px; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 60px;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 60px; opacity: 0;}
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 60px;
+        opacity: 0;
+    }
 }
-
 
 .toast-red {
     background-color: #c62828;
@@ -145,7 +194,6 @@ body {
     background-color: #424242;
 }
 
-
 .classreveal_site_content {
     flex: 1;
 }
@@ -155,8 +203,8 @@ body {
     /* margin-top: 0.5em;
     margin-left: 0.125em;
     margin-right: 0.125em; */
-    width:25%;
-    display: inline-block; 
+    width: 25%;
+    display: inline-block;
     margin: 0.5em auto;
 }
 
@@ -174,7 +222,7 @@ body {
 
 #classreveal_navbar {
     padding-top: 1%;
-    height:25%;
+    height: 25%;
 }
 
 .editclassform {
@@ -193,7 +241,6 @@ body {
     margin-top: 0.5em;
     padding-top: 0.5em;
 
-    
     padding-bottom: 0.5em;
 }
 
@@ -204,7 +251,7 @@ body {
 
 .page_base {
     background-color: #000000;
-  
+
     width: 100%;
     height: 100%;
 
@@ -213,11 +260,11 @@ body {
 
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
-    
+
 }
 
 .invisible {
-    visibility: none;
+    visibility: hidden;
 }
 
 h1,
@@ -245,14 +292,12 @@ label {
 
 .l-box-lrg {
     padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .is-center {
     text-align: center;
 }
-
-
 
 /*
  * -- PURE FORM STYLES --
@@ -290,7 +335,6 @@ a.pure-button-primary {
     font-size: 120%;
 }
 
-
 /*
  * -- MENU STYLES --
  * I want to customize how my .pure-menu looks at the top of the page
@@ -299,11 +343,13 @@ a.pure-button-primary {
 .home-menu {
     padding: 0.5em;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
+
 .home-menu {
     background: #f9a825;
 }
+
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
@@ -324,13 +370,13 @@ a.pure-button-primary {
 .home-menu a {
     color: #6FBEF3;
 }
+
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
     border: none;
     color: #AECFE5;
 }
-
 
 /*
  * -- SPLASH STYLES --
@@ -355,7 +401,10 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -363,7 +412,6 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
     font-size: 20px;
-    font-weight: bold;
     color: white;
     border: 3px solid white;
     padding: 1em 1.6em;
@@ -416,9 +464,10 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
-    .content-subhead i {
-        margin-right: 7px;
-    }
+
+.content-subhead i {
+    margin-right: 7px;
+}
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
@@ -451,15 +500,15 @@ a.pure-button-primary {
     .home-menu {
         text-align: left;
     }
-        .home-menu ul {
-            float: right;
-        }
+
+    .home-menu ul {
+        float: right;
+    }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
-        height: 500px;
-    }*/
-
+    /*    .splash-container {
+            height: 500px;
+        }*/
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
@@ -470,7 +519,6 @@ a.pure-button-primary {
     .splash-head {
         font-size: 250%;
     }
-
 
     /* We remove the border-separator assigned to .l-box-lrg */
     .l-box-lrg {
