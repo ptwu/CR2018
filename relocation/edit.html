@@ -1,418 +1,399 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Metadata -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ClassReveal | Edit</title>
-  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+	<!-- Metadata -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ClassReveal | Edit</title>
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 
-  <!-- CSS -->
-  <!--  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-  <!--<![endif]-->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <!--<![endif]-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<!-- CSS -->
+	<!--  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+	<!--<![endif]-->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	<!--<![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-  <!-- FIREBASE SETUP CODE -->
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyArtrcZzDp_OEquRaiwxPQ9K--Wx0fw0nU",
-      authDomain: "classreveal-3146f.firebaseapp.com",
-      databaseURL: "https://classreveal-3146f.firebaseio.com",
-      projectId: "classreveal-3146f",
-      storageBucket: "classreveal-3146f.appspot.com",
-      messagingSenderId: "691736012118"
-    };
-    firebase.initializeApp(config);
-  </script>
+	<!-- FIREBASE SETUP CODE -->
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyArtrcZzDp_OEquRaiwxPQ9K--Wx0fw0nU",
+			authDomain: "classreveal-3146f.firebaseapp.com",
+			databaseURL: "https://classreveal-3146f.firebaseio.com",
+			projectId: "classreveal-3146f",
+			storageBucket: "classreveal-3146f.appspot.com",
+			messagingSenderId: "691736012118"
+		};
+		firebase.initializeApp(config);
+	</script>
 
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-  <!-- JavaScript -->
-  <script src="js/materialize.min.js"></script>
-  <script src="js/edit.js"></script>
-  <script src="js/common.js"></script>
+	<!-- JavaScript -->
+	<script src="js/materialize.min.js"></script>
+	<script src="js/edit.js"></script>
+	<script src="js/common.js"></script>
 
-  <style>
-    .input-field input:focus + label {
-      color: #ffc300 !important;
-    }
+	<style>
+		.input-field input:focus + label {
+			color: #ffc300 !important;
+		}
 
-    .row .input-field input:focus {
-      border-bottom: 1px solid #ffc300;
-      box-shadow: 0 1px 0 0 #ffc300;
-    }
-  </style>
+		.row .input-field input:focus {
+			border-bottom: 1px solid #ffc300;
+			box-shadow: 0 1px 0 0 #ffc300;
+		}
+	</style>
 </head>
 
 <body>
 <!-- NAVBAR -->
 <div class="navbar-fixed">
-  <nav class="yellow" role="navigation" id="navbar">
+	<nav class="yellow" role="navigation" id="navbar">
 
 
-    <a href="#" class="brand-logo">
-      <img class="responsive-img" src="img/navbarlogo.png" />
-    </a>
-    <a href="index.html" class="brand-logo right" style="font-size:12px"></a>
-    <a href="#" data-activates="nav-mobile" class="button-collapse">
-      <i class="material-icons icon-dark">menu</i>
-    </a>
-    <ul class="right hide-on-med-and-down">
+		<a href="#" class="brand-logo">
+			<img class="responsive-img" src="img/navbarlogo.png"/>
+		</a>
+		<a href="index.html" class="brand-logo right" style="font-size:12px"></a>
+		<a href="#" data-activates="nav-mobile" class="button-collapse">
+			<i class="material-icons icon-dark">menu</i>
+		</a>
+		<ul class="right hide-on-med-and-down">
 
-      <li class="navlinks">
-        <a href="view.html">VIEW</a>
-      </li>
-      <li class="navlinks active" style="margin-right: 1vw">
-        <a href="#">EDIT</a>
-      </li>
-      <li>
-        <a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
-      </li>
-    </ul>
+			<li class="navlinks">
+				<a href="view.html">VIEW</a>
+			</li>
+			<li class="navlinks active" style="margin-right: 1vw">
+				<a href="#">EDIT</a>
+			</li>
+			<li>
+				<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+			</li>
+		</ul>
 
-  </nav>
+	</nav>
 </div>
 <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
 
-  <li class="navlinks">
-    <a href="view.html">VIEW</a>
-  </li>
-  <li class="navlinks active">
-    <a href="#">EDIT</a>
-  </li>
-  <li>
-    <a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
-  </li>
+	<li class="navlinks">
+		<a href="view.html">VIEW</a>
+	</li>
+	<li class="navlinks active">
+		<a href="#">EDIT</a>
+	</li>
+	<li>
+		<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+	</li>
 </ul>
 
 <div class="container">
 
-  <h2 class="header center" style="font-weight: 400; font-family: Raleway,serif">
-    <span class="black-text">Edit My Classes</span>
-  </h2>
-  <h6 class="header center" id="editclassheader" style="font-weight: bold">
-    <span>Use first name 'Study' and last name 'Hall' for Study Hall.</span>
-  </h6>
-  <div class="container center-align">
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="card white">
-          <div class="card-content black-text">
-            <div style="text-align: center;">
-              <button id="clearformbutton" class="btn red darken-2" onClick="clearForm()">Edit Schedule</button>
-            </div>
-            <br>
-            <div class="container">
-              <label for="select_school">Choose your School: </label>
-              <select class="browser-default container" id="select_school">
-                <option value="school_south">HS South</option>
-                <option value="school_north">HS North</option>
-              </select>
-            </div>
-            <br>
+	<h2 class="header center" style="font-weight: 400; font-family: Raleway,serif">
+		<span class="black-text">Edit My Classes</span>
+	</h2>
+	<h6 class="header center" id="editclassheader" style="font-weight: bold">
+		<span>Use first name 'Study' and last name 'Hall' for Study Hall.</span>
+	</h6>
+	<div class="container center-align">
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card white">
+					<div class="card-content black-text">
+						<div style="text-align: center;">
+							<button id="clearformbutton" class="btn red darken-2" onClick="clearForm()">Edit Schedule</button>
+						</div>
+						<br>
+						<div class="container">
+							<label for="select_school">Choose your School: </label>
+							<select class="browser-default container" id="select_school">
+								<option value="school_south">HS South</option>
+								<option value="school_north">HS North</option>
+							</select>
+						</div>
+						<br>
 
-            <div class="container">
-              <div class="row">
-                <h6>Period 1 Teacher</h6>
+						<div class="container">
+							<div class="row">
+								<h6>Period 1 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_1">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd1_autocomplete" type="text" />
-                    <label for="pd1_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(1)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_1">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd1_autocomplete" type="text"/>
+										<label for="pd1_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(1)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_1" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd1_firstname" type="text" />
-                    <label for="pd1_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd1_lastname" type="text" />
-                    <label for="pd1_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
+								<div id="manualentry_1" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd1_firstname" type="text"/>
+										<label for="pd1_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd1_lastname" type="text"/>
+										<label for="pd1_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
 
-              </div>
+							</div>
 
-              <div class="row">
-                <h6>Period 2 Teacher</h6>
+							<div class="row">
+								<h6>Period 2 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_2">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd2_autocomplete" type="text" />
-                    <label for="pd2_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(2)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_2">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd2_autocomplete" type="text"/>
+										<label for="pd2_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(2)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_2" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd2_firstname" type="text" />
-                    <label for="pd2_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd2_lastname" type="text" />
-                    <label for="pd2_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <h6>Period 3 Teacher</h6>
+								<div id="manualentry_2" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd2_firstname" type="text"/>
+										<label for="pd2_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd2_lastname" type="text"/>
+										<label for="pd2_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<h6>Period 3 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_3">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd3_autocomplete" type="text">
-                    <label for="pd3_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(3)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_3">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd3_autocomplete" type="text">
+										<label for="pd3_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(3)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_3" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd3_firstname" type="text" />
-                    <label for="pd3_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd3_lastname" type="text" />
-                    <label for="pd3_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
+								<div id="manualentry_3" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd3_firstname" type="text"/>
+										<label for="pd3_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd3_lastname" type="text"/>
+										<label for="pd3_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
 
-              </div>
+							</div>
 
-              <div class="row">
-                <h6>Period 4 Teacher</h6>
+							<div class="row">
+								<h6>Period 4 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_4">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd4_autocomplete" type="text" />
-                    <label for="pd4_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(4)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_4">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd4_autocomplete" type="text"/>
+										<label for="pd4_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(4)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_4" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd4_firstname" type="text">
-                    <label for="pd4_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd4_lastname" type="text" />
-                    <label for="pd4_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
+								<div id="manualentry_4" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd4_firstname" type="text">
+										<label for="pd4_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd4_lastname" type="text"/>
+										<label for="pd4_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
 
-              <div class="row">
-                <h6>Period 5 Teacher</h6>
+							<div class="row">
+								<h6>Period 5 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_5">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd5_autocomplete" type="text" />
-                    <label for="pd5_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(5)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_5">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd5_autocomplete" type="text"/>
+										<label for="pd5_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(5)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_5" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd5_firstname" type="text" />
-                    <label for="pd5_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd5_lastname" type="text" />
-                    <label for="pd5_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
+								<div id="manualentry_5" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd5_firstname" type="text"/>
+										<label for="pd5_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd5_lastname" type="text"/>
+										<label for="pd5_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
 
-              <div class="row">
-                <h6>Period 6 Teacher</h6>
+							<div class="row">
+								<h6>Period 6 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_6">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd6_autocomplete" type="text" />
-                    <label for="pd6_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(6)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_6">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd6_autocomplete" type="text"/>
+										<label for="pd6_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(6)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_6" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd6_firstname" type="text" />
-                    <label for="pd6_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd6_lastname" type="text" />
-                    <label for="pd6_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
+								<div id="manualentry_6" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd6_firstname" type="text"/>
+										<label for="pd6_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd6_lastname" type="text"/>
+										<label for="pd6_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
 
-              <div class="row">
-                <h6>Period 7 Teacher</h6>
+							<div class="row">
+								<h6>Period 7 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_7">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd7_autocomplete" type="text" />
-                    <label for="pd7_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(7)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_7">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd7_autocomplete" type="text"/>
+										<label for="pd7_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(7)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_7" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd7_firstname" type="text" />
-                    <label for="pd7_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd7_lastname" type="text" />
-                    <label for="pd7_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
+								<div id="manualentry_7" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd7_firstname" type="text"/>
+										<label for="pd7_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd7_lastname" type="text"/>
+										<label for="pd7_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
 
-              <div class="row">
-                <h6>Period 8 Teacher</h6>
+							<div class="row">
+								<h6>Period 8 Teacher</h6>
 
-                <br>
-                <div id="autocomplete_8">
-                  <div class="input-field col s6">
-                    <input class="teacheracinput" id="pd8_autocomplete" type="text" />
-                    <label for="pd8_autocomplete" class="active">Search by Last Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <button class="btn green darken-2" onClick="manualEntry(8)">add new</button>
-                  </div>
-                </div>
+								<br>
+								<div id="autocomplete_8">
+									<div class="input-field col s6">
+										<input class="teacheracinput" id="pd8_autocomplete" type="text"/>
+										<label for="pd8_autocomplete" class="active">Search by Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<button class="btn green darken-2" onClick="manualEntry(8)">add new</button>
+									</div>
+								</div>
 
-                <div id="manualentry_8" style="display:none">
-                  <div class="input-field col s6">
-                    <input id="pd8_firstname" type="text" />
-                    <label for="pd8_firstname" class="active namelabel">First Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="pd8_lastname" type="text" />
-                    <label for="pd8_lastname" class="active namelabel">Last Name</label>
-                  </div>
-                </div>
-              </div>
-              <button class="btn-large yellow darken-2" onClick="saveChanges()">Save Changes</button>
+								<div id="manualentry_8" style="display:none">
+									<div class="input-field col s6">
+										<input id="pd8_firstname" type="text"/>
+										<label for="pd8_firstname" class="active namelabel">First Name</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="pd8_lastname" type="text"/>
+										<label for="pd8_lastname" class="active namelabel">Last Name</label>
+									</div>
+								</div>
+							</div>
+							<button class="btn-large yellow darken-2" onClick="saveChanges()">Save Changes</button>
 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <!-- Genesis Container  -->
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m12">
-          <p>
-            For convenience, you can access Genesis right here. We don't
-            <a target="_blank" href="https://en.wikipedia.org/wiki/Same-origin_policy">(&amp; can't)</a>
-            access your password.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="myIframe">
-          <iframe width="500" id="genesisembed" src="https://students.ww-p.org"></iframe>
-        </div>
-      </div>
-    </div>
-    <!-- END Genesis Container -->
-
-  </div>
+	</div>
 </div>
 
 <div id="toast">
-  <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
-  <div id="toast_desc"></div>
+	<div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
+	<div id="toast_desc"></div>
 </div>
 <footer class="page-footer white">
-  <div class="container">
+	<div class="container">
 
 
-    <div class="row">
-      <span>By using Class Reveal, you acknowledge that anyone with a wwprsd.org Google account can see the classes in which you are enrolled. We do not support non WW-P schools because of security issues. This year, we are required to verify that ClassReveal users are actual students, which is why you have to sign in using Google. We cannot verify students from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
-    </div>
-  </div>
+		<div class="row">
+			<span>By using Class Reveal, you acknowledge that anyone with a wwprsd.org Google account can see the classes in which you are enrolled. We do not support non WW-P schools because of security issues. This year, we are required to verify that ClassReveal users are actual students, which is why you have to sign in using Google. We cannot verify students from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
+		</div>
+	</div>
 
-  <div class="footer-copyright">
-    <div class="container">
-      <a class="black-text">&copy;&nbsp;2018 Class Reveal.</a>
-    </div>
-  </div>
+	<div class="footer-copyright">
+		<div class="container">
+			<a class="black-text">&copy;&nbsp;2018 Class Reveal.</a>
+		</div>
+	</div>
 </footer>
 <script type="text/javascript">
-  $(document).ready(function () {
-    var menu = $('.menu');
-    var target = $('#' + menu.attr("data-target"));
-    menu.pushpin({});
-  });
+	$(document).ready(function () {
+		var menu = $('.menu');
+		var target = $('#' + menu.attr("data-target"));
+		menu.pushpin({});
+	});
 
-  $(".button-collapse").sideNav();
+	$(".button-collapse").sideNav();
 
-  $(document).ready(function () {
-    $('.parallax').parallax();
-  });
+	$(document).ready(function () {
+		$('.parallax').parallax();
+	});
 
-  $(document).ready(function () {
-    $('.scrollspy').scrollSpy();
-  });
+	$(document).ready(function () {
+		$('.scrollspy').scrollSpy();
+	});
 </script>
 </body>
 </html>

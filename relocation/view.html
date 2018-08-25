@@ -1,309 +1,309 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Metadata -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ClassReveal | View</title>
-  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+	<!-- Metadata -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ClassReveal | View</title>
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 
-  <!-- CSS -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-  <!--<![endif]-->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <!--<![endif]-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<!-- CSS -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.min.css" type="text/css" rel="stylesheet"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+	<!--<![endif]-->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+	<![endif]-->
+	<!--[if gt IE 8]><!-->
+	<!--<![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-  <!-- FIREBASE SETUP CODE -->
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyArtrcZzDp_OEquRaiwxPQ9K--Wx0fw0nU",
-      authDomain: "classreveal-3146f.firebaseapp.com",
-      databaseURL: "https://classreveal-3146f.firebaseio.com",
-      projectId: "classreveal-3146f",
-      storageBucket: "classreveal-3146f.appspot.com",
-      messagingSenderId: "691736012118"
-    };
-    firebase.initializeApp(config);
-  </script>
+	<!-- FIREBASE SETUP CODE -->
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyArtrcZzDp_OEquRaiwxPQ9K--Wx0fw0nU",
+			authDomain: "classreveal-3146f.firebaseapp.com",
+			databaseURL: "https://classreveal-3146f.firebaseio.com",
+			projectId: "classreveal-3146f",
+			storageBucket: "classreveal-3146f.appspot.com",
+			messagingSenderId: "691736012118"
+		};
+		firebase.initializeApp(config);
+	</script>
 
-  <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.min.js"></script>
+	<!-- JavaScript -->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.min.js"></script>
 
-  <script src="js/view.js"></script>
-  <script src="js/common.js"></script>
+	<script src="js/view.js"></script>
+	<script src="js/common.js"></script>
 </head>
 <style>
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+	body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
 
-  main {
-    flex: 1 0 auto;
-  }
+	main {
+		flex: 1 0 auto;
+	}
 </style>
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar-fixed">
-  <nav class="yellow" id="navbar">
+	<nav class="yellow" id="navbar">
 
-    <a href="#" class="brand-logo">
-      <img class="responsive-img" src="img/navbarlogo.png" />
-    </a>
-    <a href="index.html" class="brand-logo right" style="font-size:12px"></a>
-    <a href="#" data-activates="nav-mobile" class="button-collapse">
-      <i class="material-icons icon-dark">menu</i>
-    </a>
-    <ul class="right hide-on-med-and-down">
-      <li class="navlinks active">
-        <a href="#">VIEW</a>
-      </li>
-      <li class="navlinks" style="margin-right: 1vw">
-        <a href="edit.html">EDIT</a>
-      </li>
-      <li>
-        <a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
-      </li>
-    </ul>
+		<a href="#" class="brand-logo">
+			<img class="responsive-img" src="img/navbarlogo.png"/>
+		</a>
+		<a href="index.html" class="brand-logo right" style="font-size:12px"></a>
+		<a href="#" data-activates="nav-mobile" class="button-collapse">
+			<i class="material-icons icon-dark">menu</i>
+		</a>
+		<ul class="right hide-on-med-and-down">
+			<li class="navlinks active">
+				<a href="#">VIEW</a>
+			</li>
+			<li class="navlinks" style="margin-right: 1vw">
+				<a href="edit.html">EDIT</a>
+			</li>
+			<li>
+				<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+			</li>
+		</ul>
 
-  </nav>
+	</nav>
 </div>
 <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
 
-  <li class="navlinks active">
-    <a href="#">VIEW</a>
-  </li>
-  <li class="navlinks">
-    <a href="edit.html">EDIT</a>
-  </li>
-  <li>
-    <a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
-  </li>
+	<li class="navlinks active">
+		<a href="#">VIEW</a>
+	</li>
+	<li class="navlinks">
+		<a href="edit.html">EDIT</a>
+	</li>
+	<li>
+		<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+	</li>
 </ul>
 
 
 <div class="container" style="min-height: 100vh;">
-  <h2 class="black-text header center" style="font-weight: 400; font-family: Raleway,serif">
-    <span>View My Classes</span>
-  </h2>
+	<h2 class="black-text header center" style="font-weight: 400; font-family: Raleway,serif">
+		<span>View My Classes</span>
+	</h2>
 
-  <h3 id="schoolindicator" class="black-text header center" style="font-weight: 400; font-family: Raleway,serif">School: </h3>
-  <div id="periods_container" class="container">
+	<h3 id="schoolindicator" class="black-text header center" style="font-weight: 400; font-family: Raleway,serif">School: </h3>
+	<div id="periods_container" class="container">
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 1</strong></span>
-          <span id="className1" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 1</strong></span>
+					<span id="className1" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period1" class="collection">
+					<ul id="period1" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 2</strong></span>
-          <span id="className2" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 2</strong></span>
+					<span id="className2" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period2" class="collection">
+					<ul id="period2" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 3</strong></span>
-          <span id="className3" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 3</strong></span>
+					<span id="className3" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period3" class="collection">
+					<ul id="period3" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 4</strong></span>
-          <span id="className4" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 4</strong></span>
+					<span id="className4" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period4" class="collection">
+					<ul id="period4" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 5</strong></span>
-          <span id="className5" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 5</strong></span>
+					<span id="className5" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period5" class="collection">
+					<ul id="period5" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 6</strong></span>
-          <span id="className6" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 6</strong></span>
+					<span id="className6" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period6" class="collection">
+					<ul id="period6" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 7</strong></span>
-          <span id="className7" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 7</strong></span>
+					<span id="className7" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period7" class="collection">
+					<ul id="period7" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
-    <div class="row">
+		<div class="row">
 
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="black-text card-title"><strong>Period 8</strong></span>
-          <span id="className8" class="black-text card-title right">Class Name</span>
-        </div>
-        <div class="card-action">
+			<div class="card white darken-1">
+				<div class="card-content white-text">
+					<span class="black-text card-title"><strong>Period 8</strong></span>
+					<span id="className8" class="black-text card-title right">Class Name</span>
+				</div>
+				<div class="card-action">
 
-          <ul id="period8" class="collection">
+					<ul id="period8" class="collection">
 
-          </ul>
+					</ul>
 
-        </div>
+				</div>
 
-      </div>
-    </div>
+			</div>
+		</div>
 
 
-  </div>
+	</div>
 
 </div>
 
 
 <div id="toast">
-  <div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
-  <div id="toast_desc"></div>
+	<div id="toast_img_holder"><i id="toast_img_icon" className="fa"></i></div>
+	<div id="toast_desc"></div>
 </div>
 
 
 <footer class="page-footer white">
-  <div class="container">
+	<div class="container">
 
-    <div class="row">
-      <span>By using Class Reveal, you acknowledge that anyone with a wwprsd.org Google account can see the classes in which you are enrolled. We do not support non WW-P schools because of security issues. This year, we are required to verify that ClassReveal users are actual students, which is why you have to sign in using Google. We cannot verify students from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
-    </div>
-  </div>
+		<div class="row">
+			<span>By using Class Reveal, you acknowledge that anyone with a wwprsd.org Google account can see the classes in which you are enrolled. We do not support non WW-P schools because of security issues. This year, we are required to verify that ClassReveal users are actual students, which is why you have to sign in using Google. We cannot verify students from other school districts, so we're limited to WW-P. Sorry for the inconvenience.</span>
+		</div>
+	</div>
 
-  <div class="footer-copyright">
-    <div class="container">
-      <a class="black-text">&copy;&nbsp;2018 Class Reveal.</a>
-    </div>
-  </div>
+	<div class="footer-copyright">
+		<div class="container">
+			<a class="black-text">&copy;&nbsp;2018 Class Reveal.</a>
+		</div>
+	</div>
 </footer>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    var menu = $('.menu');
-    var target = $('#' + menu.attr("data-target"));
-    menu.pushpin({});
-  });
+	$(document).ready(function () {
+		var menu = $('.menu');
+		var target = $('#' + menu.attr("data-target"));
+		menu.pushpin({});
+	});
 
-  $(".button-collapse").sideNav();
+	$(".button-collapse").sideNav();
 
-  $(document).ready(function () {
-    $('.parallax').parallax();
-  });
+	$(document).ready(function () {
+		$('.parallax').parallax();
+	});
 
-  $(document).ready(function () {
-    $('.scrollspy').scrollSpy();
-  });
+	$(document).ready(function () {
+		$('.scrollspy').scrollSpy();
+	});
 </script>
 
 </body>
