@@ -55,10 +55,23 @@ function loadAutocompleteList(schoolNameDB) {
 	);
 }
 
+function clearAutocompleteFields() {
+    for(var i = 1; i <= 8; i++) {
+        var acField = document.getElementById('pd' + i + '_autocomplete');
+
+        if(acField.value != "") {
+            acField.value = "";
+            document.getElementById('pd' + i + '_firstname').value = "";
+			document.getElementById('pd' + i + '_lastname').value = "";
+        }
+    }
+}
+
 $(document).ready(function () {
 	$("#select_school").change(function () {
 
-		loadAutocompleteList($("#select_school").val());
+        loadAutocompleteList($("#select_school").val());
+        clearAutocompleteFields();
 
 	})
 });
