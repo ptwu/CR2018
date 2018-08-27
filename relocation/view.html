@@ -91,6 +91,9 @@
 			<li>
 				<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
 			</li>
+			<li>
+				<a class="navlinks modal-trigger" onClick="showHelpModal()">HELP</a>
+			</li>
 		</ul>
 
 	</nav>
@@ -106,10 +109,22 @@
 	<li>
 		<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
 	</li>
+	
 </ul>
 
 
 <div class="container" style="min-height: 100vh;">
+
+	<div id="helpModal" class="modal">
+		<div class="modal-content">
+			<h4>Need help?</h4>
+			<p>Sorry if we missed any bugs when we did our testing. If your account is broken or you run into a bug, please email classrevealhelp@gmail.com</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
+		</div>
+	</div>
+
 	<h2 class="black-text header center" style="font-weight: 400; font-family: Raleway,serif">
 		<span>View My Classes</span>
 	</h2>

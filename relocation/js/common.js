@@ -15,6 +15,10 @@ function toast(icon, color, message) {
     );
 }
 
+function showHelpModal() {
+    $('#helpModal').openModal();
+}
+
 function signOut() {
 
     toast("sign-out-alt", "gray", "Attempting to sign out...");

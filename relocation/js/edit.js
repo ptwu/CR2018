@@ -73,10 +73,12 @@ $(document).ready(function () {
         loadAutocompleteList($("#select_school").val());
         clearAutocompleteFields();
 
-	})
+    })
+  
 });
 
 function loadClasses() {
+
 	var user = firebase.auth().currentUser;
 
 	firebase.database().ref('/userProfile/' + user.uid).once('value').then(function (snapshot) {
