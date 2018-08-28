@@ -88,7 +88,7 @@ function loadClasses() {
 
 			if (snapshotVal == null) {
 				loadAutocompleteList('school_south');
-				document.getElementById('editclassheader').innerHTML += "<br><br>Start typing in your teacher's last name to use autocomplete. If you can't find them, press Add New to enter a new teacher manually";
+				document.getElementById('editclassheader').innerHTML += "<br><br>Start typing in your teacher's last name to use autocomplete. If you can't find them, press <b>Add Unlisted Teacher</b> to add them to our list.";
 				document.getElementById('clearformbutton').style.display = "none";
 				return;
 			}
