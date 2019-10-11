@@ -55,15 +55,30 @@ function loadAutocompleteList(schoolNameDB) {
 	);
 }
 
+function clearAutocompleteFields() {
+    for(var i = 1; i <= 8; i++) {
+        var acField = document.getElementById('pd' + i + '_autocomplete');
+
+        if(acField.value != "") {
+            acField.value = "";
+            document.getElementById('pd' + i + '_firstname').value = "";
+			document.getElementById('pd' + i + '_lastname').value = "";
+        }
+    }
+}
+
 $(document).ready(function () {
 	$("#select_school").change(function () {
 
-		loadAutocompleteList($("#select_school").val());
+        loadAutocompleteList($("#select_school").val());
+        clearAutocompleteFields();
 
-	})
+    })
+  
 });
 
 function loadClasses() {
+
 	var user = firebase.auth().currentUser;
 
 	firebase.database().ref('/userProfile/' + user.uid).once('value').then(function (snapshot) {
@@ -73,7 +88,7 @@ function loadClasses() {
 
 			if (snapshotVal == null) {
 				loadAutocompleteList('school_south');
-				document.getElementById('editclassheader').innerHTML += "<br><br>Start typing in your teacher's last name to use autocomplete. If you can't find them, press Add New to enter a new teacher manually";
+				document.getElementById('editclassheader').innerHTML += "<br><br>Start typing in your teacher's last name to use autocomplete. If you can't find them, press <b>Add Unlisted Teacher</b> to add them to our list.";
 				document.getElementById('clearformbutton').style.display = "none";
 				return;
 			}

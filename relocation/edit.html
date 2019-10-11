@@ -11,6 +11,7 @@
 	<link rel="manifest" href="site.webmanifest">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
+	<meta property="og:image" content="img/crimage.png" />
 
 	<!-- CSS -->
 	<!--  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous"> -->
@@ -90,12 +91,16 @@
 			<li class="navlinks">
 				<a href="view.html">VIEW</a>
 			</li>
-			<li class="navlinks active" style="margin-right: 1vw">
+			<li class="navlinks active">
 				<a href="#">EDIT</a>
+			</li>
+			<li>
+				<a class="navlinks modal-trigger" onClick="showHelpModal()">HELP</a>
 			</li>
 			<li>
 				<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
 			</li>
+		
 		</ul>
 
 	</nav>
@@ -109,18 +114,31 @@
 		<a href="#">EDIT</a>
 	</li>
 	<li>
-		<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+		<a class="navlinks modal-trigger" onClick="showHelpModal()">HELP</a>
 	</li>
+	
+		<a class="btn-large waves-effect waves-light black white-text" onclick=signOut()>Sign out</a>
+
 </ul>
 
 <div class="container">
 
+	<div id="helpModal" class="modal">
+		<div class="modal-content">
+			<h4>Need help?</h4>
+			<p>Sorry if we missed any bugs when we did our testing. If your account is broken or you run into a bug, please email classrevealhelp@gmail.com</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a>
+		</div>
+	</div>
+
 	<h2 class="header center" style="font-weight: 400; font-family: Raleway,serif">
 		<span class="black-text">Edit My Classes</span>
 	</h2>
-	<h6 class="header center" id="editclassheader" style="font-weight: bold">
+	<h5 class="header center" id="editclassheader" style="font-size: 16px;">
 		<span>Use first name 'Study' and last name 'Hall' for Study Hall.</span>
-	</h6>
+	</h5>
 	<div class="container center-align">
 		<div class="row">
 			<div class="col s12 m12">
@@ -145,21 +163,21 @@
 
 								<br>
 								<div id="autocomplete_1">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd1_autocomplete" type="text"/>
 										<label for="pd1_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(1)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(1)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_1" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd1_firstname" type="text"/>
 										<label for="pd1_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd1_lastname" type="text"/>
 										<label for="pd1_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -172,21 +190,21 @@
 
 								<br>
 								<div id="autocomplete_2">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd2_autocomplete" type="text"/>
 										<label for="pd2_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(2)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(2)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_2" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd2_firstname" type="text"/>
 										<label for="pd2_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd2_lastname" type="text"/>
 										<label for="pd2_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -197,21 +215,21 @@
 
 								<br>
 								<div id="autocomplete_3">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd3_autocomplete" type="text">
 										<label for="pd3_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(3)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(3)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_3" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd3_firstname" type="text"/>
 										<label for="pd3_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd3_lastname" type="text"/>
 										<label for="pd3_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -224,21 +242,21 @@
 
 								<br>
 								<div id="autocomplete_4">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd4_autocomplete" type="text"/>
 										<label for="pd4_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(4)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(4)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_4" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd4_firstname" type="text">
 										<label for="pd4_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd4_lastname" type="text"/>
 										<label for="pd4_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -250,21 +268,21 @@
 
 								<br>
 								<div id="autocomplete_5">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd5_autocomplete" type="text"/>
 										<label for="pd5_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(5)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(5)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_5" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd5_firstname" type="text"/>
 										<label for="pd5_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd5_lastname" type="text"/>
 										<label for="pd5_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -276,21 +294,21 @@
 
 								<br>
 								<div id="autocomplete_6">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd6_autocomplete" type="text"/>
 										<label for="pd6_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(6)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(6)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_6" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd6_firstname" type="text"/>
 										<label for="pd6_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd6_lastname" type="text"/>
 										<label for="pd6_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -302,21 +320,21 @@
 
 								<br>
 								<div id="autocomplete_7">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd7_autocomplete" type="text"/>
 										<label for="pd7_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(7)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(7)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_7" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd7_firstname" type="text"/>
 										<label for="pd7_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd7_lastname" type="text"/>
 										<label for="pd7_lastname" class="active namelabel">Last Name</label>
 									</div>
@@ -328,21 +346,21 @@
 
 								<br>
 								<div id="autocomplete_8">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input class="teacheracinput" id="pd8_autocomplete" type="text"/>
 										<label for="pd8_autocomplete" class="active">Search by Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<button class="btn green darken-2" onClick="manualEntry(8)">add new</button>
+									<div class="input-field col s12 m6">
+										<button class="btn green darken-2" onClick="manualEntry(8)">add unlisted teacher</button>
 									</div>
 								</div>
 
 								<div id="manualentry_8" style="display:none">
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd8_firstname" type="text"/>
 										<label for="pd8_firstname" class="active namelabel">First Name</label>
 									</div>
-									<div class="input-field col s6">
+									<div class="input-field col s12 m6">
 										<input id="pd8_lastname" type="text"/>
 										<label for="pd8_lastname" class="active namelabel">Last Name</label>
 									</div>
